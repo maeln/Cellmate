@@ -1,22 +1,18 @@
-cmake_minimum_required(VERSION 2.8)
+cmake_minimum_required(VERSION 3.5)
+project(Cellmate)
 
-set(PROJECT_NAME Cellmate)
-set(BINARY_NAME cellmate)
+set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=c++11")
 
-project(${PROJECT_NAME})
+set(SOURCE_FILES
+    src/cellmate.cxx
+    src/world.cxx
+    src/world.hxx)
 
-set (${PROJECT_NAME}_VERSION_MAJOR 1)
-set (${PROJECT_NAME}_VERSION_MINOR 0)
-
-if(NOT CMAKE_BUILD_TYPE)
-  set(CMAKE_BUILD_TYPE Debug CACHE STRING "Choose the type of build (Debug or Release)" FORCE)
-endif()
-
-add_executable(../${BINARY_NAME} src/cellmate.cxx)
+add_executable(Cellmate ${SOURCE_FILES})
 
 target_link_libraries(
-  ../${BINARY_NAME}
-  sfml-graphics
-  sfml-window
-  sfml-system
+        Cellmate
+        sfml-graphics
+        sfml-window
+        sfml-system
 )
