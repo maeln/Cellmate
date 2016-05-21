@@ -5,8 +5,8 @@ set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=c++11")
 
 set(SOURCE_FILES
     src/cellmate.cxx
-    src/world.cxx
-    src/world.hxx)
+        src/World.cxx
+        src/World.hxx src/WorldRenderer.cxx src/WorldRenderer.hxx)
 
 add_executable(Cellmate ${SOURCE_FILES})
 

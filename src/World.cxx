@@ -1,4 +1,4 @@
-#include "world.hxx"
+#include "World.hxx"
 
 World::World()
 {
@@ -7,7 +7,7 @@ World::World()
 	m_space = std::vector<Cell>();
 }
 
-World::World(unsigned int width, unsigned int height, int default_state = 0)
+World::World(unsigned int width, unsigned int height, int default_state)
 {
 	m_width = width;
 	m_height = height;
@@ -38,16 +38,3 @@ unsigned int World::get_height()
 {
 	return m_height;
 }
-
-
-
-
-
-
-
-
-
-
-
-
-

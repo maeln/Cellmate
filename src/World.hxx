@@ -2,6 +2,9 @@
  * Define the world in which the cells evolve.
  */
 
+#ifndef CELLMATE_WORLD_HXX
+#define CELLMATE_WORLD_HXX
+
 #include <vector>
 
 class Cell
@@ -16,7 +19,7 @@ class World
 {
 public:
 	World();
-	World(unsigned int width, unsigned int height, int default_state = 0);
+	World(unsigned int width, unsigned int height, int default_state);
 	~World();
 
 	// Properties getter
@@ -33,3 +36,4 @@ private:
 	std::vector<Cell> m_space;
 };
 
+#endif

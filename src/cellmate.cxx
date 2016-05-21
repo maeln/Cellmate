@@ -1,17 +1,20 @@
 #include <iostream>
 
 #include <SFML/Graphics.hpp>
+#include "World.hxx"
+#include "WorldRenderer.hxx"
 
 int main(int argc, char **argv)
 {
 	sf::RenderWindow window(sf::VideoMode(800, 600), "SFML Window");
-	sf::Font font;
-	if(!font.loadFromFile("data/fonts/ubuntu/ubuntumono.ttf"))
-		return -1;
-	sf::Text text("Hello World !", font, 48);
-	text.setPosition(window.getSize().x / 2.0, window.getSize().y / 2.0);
-	text.setColor(sf::Color(64, 255, 128));
-	
+	World world(8, 6, 0);
+	WorldRenderer w_renderer(&world, &window);
+
+	world.set_cell_state_at(0, 0, 1);
+	world.set_cell_state_at(7, 5, 1);
+	world.set_cell_state_at(4, 3, 1);
+	world.set_cell_state_at(7, 0, 1);
+
 	while(window.isOpen())
 	{
 		sf::Event event;
@@ -22,7 +25,9 @@ int main(int argc, char **argv)
 		}
 		
 		window.clear(sf::Color(255, 255, 255));
-		window.draw(text);
+
+		w_renderer.render_world();
+
 		window.display();
 	}
 	
