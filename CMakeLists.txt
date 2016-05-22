@@ -15,4 +15,6 @@ target_link_libraries(
         sfml-graphics
         sfml-window
         sfml-system
+        pthread
+        ${CMAKE_SOURCE_DIR}/deps/libangelscript.a
 )
