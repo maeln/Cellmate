@@ -1,4 +1,4 @@
 build/
 cellmate
 .idea
-*.a
+deps/*

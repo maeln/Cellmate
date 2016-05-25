@@ -81,6 +81,9 @@ int main(int argc, char **argv)
 		if(r == asEXECUTION_EXCEPTION)
 			std::cerr << "[ERR] An exception has occured while running hello.as" << std::endl;
 
+	ctx->Release();
+	engine->ShutDownAndRelease();
+
 	while(window.isOpen())
 	{
 		sf::Event event;
@@ -96,9 +99,6 @@ int main(int argc, char **argv)
 
 		window.display();
 	}
-
-	ctx->Release();
-	engine->ShutDownAndRelease();
 
 	return 0;
 }

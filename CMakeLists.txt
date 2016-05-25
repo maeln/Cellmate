@@ -6,7 +6,11 @@ set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=c++11")
 set(SOURCE_FILES
     src/cellmate.cxx
         src/World.cxx
-        src/World.hxx src/WorldRenderer.cxx src/WorldRenderer.hxx)
+        src/WorldRenderer.cxx
+        src/angelscript/scriptbuilder/scriptbuilder.cpp
+        src/angelscript/scriptstdstring/scriptstdstring.cpp)
+
+link_directories(${CMAKE_SOURCE_DIR}/deps)
 
 add_executable(Cellmate ${SOURCE_FILES})
 
@@ -15,6 +19,5 @@ target_link_libraries(
         sfml-graphics
         sfml-window
         sfml-system
-        pthread
-        ${CMAKE_SOURCE_DIR}/deps/libangelscript.a
+        angelscript
 )
